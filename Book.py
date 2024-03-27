@@ -6,8 +6,15 @@ class Book:
         self.pages = pages
         
     def __repr__(self) -> str:
-        return f"The Title is {self.title}"
+        return f"Book('{self.author}', '{self.title}', '{self.book_type}', {self.pages})"
+    
+    def __str__(self) -> str:
+        return f"{self.title} by {self.author} in {self.book_type}"
         
     
 b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
-print(b)
+
+print(repr(b))
+eval(repr(b))
+print(str(b))
+print(b.__dict__)
