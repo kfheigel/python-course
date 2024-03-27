@@ -39,5 +39,5 @@ class Password:
             
             case _: return ''
 
-p1 = Password('mid')
+p1 = Password(strength = 'mid')
 print(p1.password)
