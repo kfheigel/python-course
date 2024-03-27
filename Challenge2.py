@@ -39,5 +39,11 @@ class Password:
             
             case _: return ''
 
-p1 = Password(strength = 'mid')
+p1 = Password(strength = 'low')
 print(p1.password)
+p2 = Password(strength = 'mid', length=40)
+print(p2.password)
+p3 = Password(strength = 'high')
+print(p3.password)
+p4 = Password()
+print(p4.password)
