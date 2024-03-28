@@ -1,13 +1,16 @@
+from collections import namedtuple
+
+
 class Book:
     def __init__(self, title, author, book_type, pages) -> None:
         self.title = title
         self.author = author
         self.book_type = book_type
         self.pages = pages
-        
+
     def __repr__(self) -> str:
         return f"Book('{self.author}', '{self.title}', '{self.book_type}', {self.pages})"
-    
+
     def __str__(self) -> str:
         return f"{self.title} by {self.author} in {self.book_type}"
 
@@ -18,15 +21,26 @@ class Book:
             return f"A book contain {self.pages}. Guess?"
 
         return repr(self)
-        
-    
-b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
 
+    def __eq__(self, other):
+        if not isinstance(other, Book):
+            return False
+        return self.title == other.title and self.author == other.author
+
+
+essay = namedtuple("essay", ["title", "author"])
+
+e = essay("Antifragile", "Nassim Taleb")
+
+b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
+b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
+
+print(b == e)
 # print(repr(b))
 # eval(repr(b))
 # print(str(b))
 # print(b.__dict__)
 
-print(f"{b:stealth}")
-print("{:short}".format(b))
-print(format(b, "stealth"))
+# print(f"{b:stealth}")
+# print("{:short}".format(b))
+# print(format(b, "stealth"))
