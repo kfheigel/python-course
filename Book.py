@@ -35,6 +35,12 @@ class Book:
         if not isinstance(other, Book):
             return NotImplemented
         return self.pages > other.pages
+
+    def __len__(self):
+        return self.pages if self.pages > 0 else 0
+    
+    # def __bool__(self):
+    #     return bool(self.pages) and not (self.pages<1)
     
     # def __lt__(self, other):
     #     return NotImplemented
@@ -57,13 +63,13 @@ e = essay("Antifragile", "Nassim Taleb")
 b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
 b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 472)
 
-
-print(b == b2)
-print(b != b2)
-print(b > b2)
-print(b < b2)
-print(b >= b2)
-print(b <= b2)
+# print(bool(b))
+# print(b == b2)
+# print(b != b2)
+# print(b > b2)
+# print(b < b2)
+# print(b >= b2)
+# print(b <= b2)
 # print(b == e)
 # print(b != e)
 # print(repr(b))
