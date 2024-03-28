@@ -34,20 +34,27 @@ class Book:
         if not isinstance(other, Book):
             return NotImplemented
         return self.pages > other.pages
+    
+    def __lt__(self, other):
+        return NotImplemented
+    
+    def __le__(self, other):
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.pages <= other.pages
 
     # def __ne__(self, other):
     #     print("comparing non-equality")
-
 
 essay = namedtuple("essay", ["title", "author"])
 
 e = essay("Antifragile", "Nassim Taleb")
 
 b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
-b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 472)
+b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
 
 
-print(b>b2)
+print(b>=b2)
 # print(b == e)
 # print(b != e)
 # print(repr(b))
