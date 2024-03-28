@@ -10,11 +10,23 @@ class Book:
     
     def __str__(self) -> str:
         return f"{self.title} by {self.author} in {self.book_type}"
+
+    def __format__(self, format_spec):
+        if format_spec == "short":
+            return f"{self.title} - {self.author}"
+        elif format_spec == "stealth":
+            return f"A book contain {self.pages}. Guess?"
+
+        return repr(self)
         
     
 b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
 
-print(repr(b))
-eval(repr(b))
-print(str(b))
-print(b.__dict__)
+# print(repr(b))
+# eval(repr(b))
+# print(str(b))
+# print(b.__dict__)
+
+print(f"{b:stealth}")
+print("{:short}".format(b))
+print(format(b, "stealth"))
