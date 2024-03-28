@@ -26,6 +26,9 @@ class Book:
         if not isinstance(other, Book):
             return False
         return self.title == other.title and self.author == other.author
+    
+    def __hash__(self) -> int:
+        return hash(tuple((self.title, self.author)))
 
     # def __ne__(self, other):
     #     print("comparing non-equality")
