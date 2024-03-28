@@ -27,6 +27,9 @@ class Book:
             return False
         return self.title == other.title and self.author == other.author
 
+    def __ne__(self, other):
+        print("comparing non-equality")
+
 
 essay = namedtuple("essay", ["title", "author"])
 
@@ -35,7 +38,8 @@ e = essay("Antifragile", "Nassim Taleb")
 b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
 b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
 
-print(b == e)
+# print(b == e)
+print(b != e)
 # print(repr(b))
 # eval(repr(b))
 # print(str(b))
