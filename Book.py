@@ -1,6 +1,7 @@
 from collections import namedtuple
+from functools import total_ordering
 
-
+@total_ordering
 class Book:
     def __init__(self, title, author, book_type, pages) -> None:
         self.title = title
@@ -35,13 +36,16 @@ class Book:
             return NotImplemented
         return self.pages > other.pages
     
-    def __lt__(self, other):
-        return NotImplemented
+    # def __lt__(self, other):
+    #     return NotImplemented
     
-    def __le__(self, other):
-        if not isinstance(other, Book):
-            return NotImplemented
-        return self.pages <= other.pages
+    # def __le__(self, other):
+    #     if not isinstance(other, Book):
+    #         return NotImplemented
+    #     return self.pages <= other.pages
+    
+    # def __ge__(self, other):
+    #     return NotImplemented
 
     # def __ne__(self, other):
     #     print("comparing non-equality")
@@ -51,10 +55,15 @@ essay = namedtuple("essay", ["title", "author"])
 e = essay("Antifragile", "Nassim Taleb")
 
 b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
-b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
+b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 472)
 
 
-print(b>=b2)
+print(b == b2)
+print(b != b2)
+print(b > b2)
+print(b < b2)
+print(b >= b2)
+print(b <= b2)
 # print(b == e)
 # print(b != e)
 # print(repr(b))
