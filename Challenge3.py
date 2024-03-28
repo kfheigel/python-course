@@ -43,7 +43,7 @@ c2 = Contact("Andy", "Bek", "666555666")
 c3 = Contact("Andy", "Bek", "666555666", 'hey@andybek.com')
 c4 = Contact("Andy", "Bek", "666555666", 'hey@andybek.com', display_mode="show")
 
-print(c2 == c3)
+print(c1 == c2)
 print(repr(c1))
 print(str(c1))
 print(f"{c1:unmasked}")

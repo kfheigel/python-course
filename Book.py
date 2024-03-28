@@ -29,6 +29,11 @@ class Book:
     
     def __hash__(self) -> int:
         return hash(tuple((self.title, self.author)))
+    
+    def __gt__(self, other):
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.pages > other.pages
 
     # def __ne__(self, other):
     #     print("comparing non-equality")
@@ -39,10 +44,12 @@ essay = namedtuple("essay", ["title", "author"])
 e = essay("Antifragile", "Nassim Taleb")
 
 b = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
-b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
+b2 = Book("Antifragile", "Nassim Taleb", "Hardcover", 472)
 
+
+print(b>b2)
 # print(b == e)
-print(b != e)
+# print(b != e)
 # print(repr(b))
 # eval(repr(b))
 # print(str(b))
